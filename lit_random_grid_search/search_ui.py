@@ -13,7 +13,7 @@ cfgname="config"
 
 def search_show(open_delim="<<", close_delim=">>"):
 
-  stut.text_input("search.script.path")
+  text=stut.text_area("search.run")
 
   col1, col2 = st.columns(2)
   with col1:
@@ -21,8 +21,6 @@ def search_show(open_delim="<<", close_delim=">>"):
   with col2:
     if search_option == "Random":
       random_search = stut.text_input("search.random.count")  
-
-  text = stut.text_area("search.script.arg",empty_is_invalid=False)
 
   if search_option == "None":
     st.session_state[cfgname]["target"]["search.details"]=text
@@ -66,7 +64,10 @@ def search_submit(state):
         pass
       # processed.  let the UI unlock
       else:
+        # unlock the screen
         st.session_state[cfgname]['target']['search.submit']=False
+        # unlock the process change
+        state.session_state_changed = None
     else:
       st.session_state[cfgname]['target']['search.submit']=False
       

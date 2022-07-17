@@ -18,7 +18,7 @@ class LitApp(la.LightningFlow):
           search_details_len = len(search_details)
           #print(search_details)
           if self.index < search_details_len:
-            cmd=target["search.script.path"] + " " + search_details[self.index]
+            cmd=search_details[self.index]
             self.work.run(cmd)
             print(cmd)
             print(search_details_len, self.index, search_details[self.index])

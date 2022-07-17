@@ -1,11 +1,8 @@
 cfg_name = "config"
 
 config = {
-  "search.script.path": "python scripts/train_hydra.py",
-  "search.script.path.help": "script to run",
-
-  "search.script.arg": "--config-path scripts/configs --config-name config hydra.dir.out=outputs",
-  "search.script.arg.help": "argument to the script",
+  "search.run": "python scripts/train_hydra.py --config-path scripts/configs --config-name config hydra.dir.out=outputs",
+  "search.run.help": "Run program script argument",
 
   "search.strategy": "None",
   "search.strategy.options": ['None', 'Grid', 'Random'],
